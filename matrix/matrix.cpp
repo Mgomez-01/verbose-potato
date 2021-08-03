@@ -3,6 +3,7 @@
 
 //constructor makes the initial structure for the matrix and populates the entries with zero's 
 matrix::matrix(int m, int n) {
+    this->dims = std::make_tuple(m,n);
     for(int i = 0; i < m; i++){
         std::vector<double> temp;
         this->values.push_back(temp);
@@ -11,8 +12,12 @@ matrix::matrix(int m, int n) {
         }
     }
 }
-
-matrix::matrix(){}
+// creates a matrix representation of a scalar, or a one vector. representation of a sign and magnitude only for this constructor
+matrix::matrix(){
+    std::vector<double> temp;
+    this->values.push_back(temp);
+    this->values[0].push_back(0);
+}
 //Destructor
 matrix::~matrix(){}
 // transpose operation
@@ -54,6 +59,11 @@ void matrix::print_matrix()
     std::cout << "\n]\n";
 }
 
+// printing dims easily
+void matrix::print_dims()
+{
+ std::cout << "dim " << std::get<0>(this->dims) << "x"  << std::get<1>(this->dims) << std::endl;   
+}
 //Operator overloads
 matrix& matrix::operator*(matrix& b){}
 matrix& matrix::operator-(matrix& b){}
@@ -67,3 +77,10 @@ matrix& matrix::operator+(matrix& b)
     }
 }
 matrix& matrix::operator/(matrix& b){}
+matrix& matrix::operator=(matrix& b){
+    std::cout << "matrix equality operator" << std::endl;
+    if (this == & b)
+    {return *this;}
+    this->values = b.values;
+    return *this;
+}

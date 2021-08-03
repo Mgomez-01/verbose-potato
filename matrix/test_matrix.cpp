@@ -8,9 +8,11 @@ int main(){
     mat1.print_matrix();
     mat2.print_matrix();
     
-    matrix res; 
-    res = mat1 + mat2;
-    
+    //mat1.print_dims();
+    matrix* res = new matrix();
+
+    res = &(mat1 + mat2);
+
     return 0;
 
 }
