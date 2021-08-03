@@ -6,6 +6,8 @@ class matrix {
 public:
 //constructor
 matrix(int m, int n);
+//default const
+matrix();
 //Destructor
 ~matrix();
 // transpose operation
