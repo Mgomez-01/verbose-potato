@@ -1,0 +1,1 @@
+Remember to use the g++ command for compiling the code inside of the code-server environment and not gpp 
