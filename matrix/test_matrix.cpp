@@ -28,9 +28,13 @@ int main(){
     std::cout << "after multiply and using test after assignment." << std::endl;
     test = *res;
     test.print_matrix();
-    test.indentity();
+    test.identity();
     std::cout << "after Identity ." << std::endl;
     test.print_matrix();
+    matrix notEqual(2,5);
+    notEqual.print_matrix();
+    notEqual.identity();
+
     return 0;
 
 }

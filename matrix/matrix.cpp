@@ -22,8 +22,10 @@ matrix::matrix(){
 matrix::~matrix(){}
 // transpose operation
 matrix matrix::transpose(){return *this;}
-matrix matrix::indentity()
+matrix matrix::identity()
 {
+    if(std::get<0>(this->dims) == std::get<1>(this->dims))
+    {
     for(int i = 0; i < std::get<0>(this->dims); i ++)
     {
         for (int j = 0; j < std::get<1>(this->dims); j++)
@@ -33,6 +35,8 @@ matrix matrix::indentity()
             else this->values[i][j] = 0;
         }
     }
+    }else 
+    {std::cout<< "Dimensions do not allow this to be an identity matrix. Must have equal dimensions" << std::endl;}
     return *this;
 }
 void matrix::print_matrix()

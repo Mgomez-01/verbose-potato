@@ -13,7 +13,7 @@ matrix();
 ~matrix();
 // transpose operation
 matrix transpose();
-matrix indentity();
+matrix identity();
 void print_matrix();
 void print_dims();
 void insert_element(double value, int m, int n);
