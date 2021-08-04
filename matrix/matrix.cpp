@@ -21,12 +21,25 @@ matrix::matrix(){
 //Destructor
 matrix::~matrix(){}
 // transpose operation
-matrix matrix::transpose(matrix m){}
+matrix matrix::transpose(){return *this;}
+matrix matrix::indentity()
+{
+    for(int i = 0; i < std::get<0>(this->dims); i ++)
+    {
+        for (int j = 0; j < std::get<1>(this->dims); j++)
+        {
+            if(i == j)
+            {this->values[i][j] = 1;}
+            else this->values[i][j] = 0;
+        }
+    }
+    return *this;
+}
 void matrix::print_matrix()
 {
     int m = this->values.size();
     int n = this->values[0].size();
-    std::cout << "Matrix of dim " << m << " x " << n << std::endl; 
+    std::cout << "Matrix of " << m << " x " << n << std::endl; 
     std::cout << "[\n";
     for(int i = 0; i < m ; i++)
     {
@@ -62,25 +75,58 @@ void matrix::print_matrix()
 // printing dims easily
 void matrix::print_dims()
 {
- std::cout << "dim " << std::get<0>(this->dims) << "x"  << std::get<1>(this->dims) << std::endl;   
+ std::cout << std::get<0>(this->dims) << "x"  << std::get<1>(this->dims) << std::endl;   
+}
+
+//insert an element
+void matrix::insert_element(double value, int m, int n)
+{
+    if(m > this->values.size() || n > this->values[0].size())
+    {
+        std::cout << "incorrect dimensions, specify position as indices in a matrix with the topmost/leftmost element being 1,1 up to m,n\n\n." << std::endl;
+    }
+    else 
+    {
+        this->values[m-1][n-1] = value;
+    }
 }
 //Operator overloads
-matrix& matrix::operator*(matrix& b){}
-matrix& matrix::operator-(matrix& b){}
+matrix& matrix::operator*(double b) 
+{
+    for(int i = 0; i < std::get<0>(this->dims); i++)
+    {
+        for(int j = 0; j < std::get<1>(this->dims); j++)
+        {
+            this->values[i][j] = this->values[i][j] * b; 
+        }
+    }
+    return *this;
+}
+matrix& matrix::operator-(matrix& b){return *this;}
 matrix& matrix::operator+(matrix& b)
 {
     if(this->values.size() == b.values.size() && this->values[0].size() == b.values[0].size())
     {
         std::cout << "both are the same dimensions and can be added" << std::endl;
+        for(int i = 0; i < this->values.size(); i++)
+        {
+            for(int j = 0; j < this->values[0].size(); j++)
+            {
+                this->values[i][j] = this->values[i][j] + b.values[i][j]; 
+            }
+        }
     }else{
         std::cout << "dimensions are different and cannot be added" << std::endl;
     }
+
+    return *this;
 }
-matrix& matrix::operator/(matrix& b){}
+matrix& matrix::operator/(matrix& b){return *this;}
 matrix& matrix::operator=(matrix& b){
     std::cout << "matrix equality operator" << std::endl;
     if (this == & b)
     {return *this;}
     this->values = b.values;
+    this->dims = b.dims;
     return *this;
 }

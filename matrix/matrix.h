@@ -12,11 +12,13 @@ matrix();
 //Destructor
 ~matrix();
 // transpose operation
-matrix transpose(matrix m);
+matrix transpose();
+matrix indentity();
 void print_matrix();
 void print_dims();
+void insert_element(double value, int m, int n);
 //Operator overloads
-matrix& operator*(matrix& b);
+matrix& operator*(double d);
 matrix& operator-(matrix& b);
 matrix& operator+(matrix& b);
 matrix& operator/(matrix& b);
