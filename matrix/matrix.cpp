@@ -36,7 +36,8 @@ matrix matrix::identity()
         }
     }
     }else 
-    {std::cout<< "Dimensions do not allow this to be an identity matrix. Must have equal dimensions" << std::endl;}
+    {std::cout<< "Dimensions do not allow this to be an identity matrix. Must have equal dimensions.\n"
+    << "Please create a new square matrix of desired size." << std::endl;}
     return *this;
 }
 void matrix::print_matrix()
