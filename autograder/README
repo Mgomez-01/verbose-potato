@@ -1,0 +1,16 @@
+To run: download all the submissions from canvas (shoudl give you submissions.zip)
+Copy that here
+mkdir submissions
+cp submissions.zip submissions
+cd submissions
+unzip submissions.zip # canvas doesn't put them in a folder, so unzipping will put them all in the cwd
+cd ..
+# you are here by default autograder will look at all the .c files in the submissions directory
+./autograder.py > outputFile.txt # probably easiest to save the output in a file
+
+
+It will print lots of info, and then all the grades at the end.
+If a student doesn't score 100, find their name in the noisy output at the top,
+and copy what they got wrong into the comments on canvas
+
+It's probably easiest to use speedgrader on Canvas.

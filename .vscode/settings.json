@@ -2,5 +2,5 @@
     "workbench.fontAliasing": "auto",
     "scm.inputFontFamily": "FuraCode Nerd Font Mono",
     "debug.console.fontFamily": "FuraCode Nerd Font Mono",
-    "terminal.integrated.fontFamily":"FuraCode Nerd Font Mono"
+    "terminal.integrated.fontFamily": "monospace"
 }

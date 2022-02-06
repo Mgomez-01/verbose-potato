@@ -1,0 +1,6 @@
+assignment1.c
+passed bitwise tests
+test frmework built successfully
+assignment1.c scored 100
+******grades******
+assignment1.c 100.000000
