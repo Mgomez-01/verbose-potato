@@ -1,4 +1,4 @@
-
+ echo 'Command copies A at cade machine to B locally'
  echo -n ' 
 Making a copy of '
 echo -n ${1}
